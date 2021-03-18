@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<package>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
   <name>serial</name>
   <version>1.2.1</version>
   <description>
@@ -19,8 +20,13 @@
   <author email="wjwwood@gmail.com">William Woodall</author>
   <author email="ash.gti@gmail.com">John Harrison</author>
 
-  <buildtool_depend>catkin</buildtool_depend>
 
+  <buildtool_depend>cmake</buildtool_depend>
   <test_depend>boost</test_depend>
+  <test_depend>gtest</test_depend>
+
+  <export>
+    <build_type>cmake</build_type>
+  </export>
 
 </package>
