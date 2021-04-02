@@ -28,7 +28,7 @@ else()
 endif()
 
 ## Add serial library
-add_library(${PROJECT_NAME} ${serial_SRCS})
+add_library(${PROJECT_NAME} SHARED ${serial_SRCS})
 if(APPLE)
     target_link_libraries(${PROJECT_NAME} ${FOUNDATION_LIBRARY} ${IOKIT_LIBRARY})
 elseif(UNIX)
@@ -36,6 +36,7 @@ elseif(UNIX)
 else()
     target_link_libraries(${PROJECT_NAME} setupapi)
 endif()
+
 
 ## Uncomment for example
 add_executable(serial_example examples/serial_example.cc)
@@ -59,7 +60,6 @@ install(TARGETS ${PROJECT_NAME}
 
 ## Install CMake config
 include(cmake/serialConfig.cmake)
-#export(TARGETS ${PROJECT_NAME} FILE cmake/serialConfig.cmake)
 install(FILES
         cmake/serialConfig.cmake
         DESTINATION share/serial/cmake)
